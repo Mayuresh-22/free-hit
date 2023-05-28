@@ -34,7 +34,9 @@ const Header = () => {
       const target = event.target;
       const sidebar = document.getElementById('sidebar');
 
-      if (target.id == 'btn' || !sidebar.contains(target)) {
+      if (target.id !== 'btn' || !sidebar.contains(target)) {
+        closeSidebar();
+      } else{
         closeSidebar();
       }
     };
