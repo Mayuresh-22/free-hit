@@ -34,7 +34,7 @@ const Header = () => {
       const target = event.target;
       const sidebar = document.getElementById('sidebar');
 
-      if (target.id !== 'btn' || !sidebar.contains(target)) {
+      if (target.id !== 'btn' && !sidebar.contains(target)) {
         closeSidebar();
       }
     };
@@ -55,9 +55,9 @@ const Header = () => {
             <i className="fa ri-menu-fill"></i>
             <i className="fa ri-close-line"></i>
           </label>
-          <nav id="sidebar">
-            <div className="title">
-              <ul className="pages-sidebar">
+          {location.pathname == '/about' ? (
+            <nav id="sidebar">
+              <ul className="list-items">
                 <li>
                   <a href="/">
                     <i className="ri-home-4-fill"></i> Home
@@ -65,21 +65,41 @@ const Header = () => {
                 </li>
                 <li>
                   <a href="/bookmarks">
-                    <i className="ri-bookmark-fill"></i> Bookmark
+                    <i className="ri-bookmark-fill"></i> Bookmarks
                   </a>
                 </li>
+                <li>
+                  <TwitterButton message={msg} />
+                </li>
               </ul>
-            </div>
-            <ul className="list-items">
-              {ButtonLinks.map((buttonLink) => (
-                <Button
-                  key={buttonLink.id}
-                  button={buttonLink}
-                  filterProduct={filterProduct}
-                />
-              ))}
-            </ul>
-          </nav>
+            </nav>
+          ) : (
+            <nav id="sidebar">
+              <div className="title">
+                <ul className="pages-sidebar">
+                  <li>
+                    <a href="/">
+                      <i className="ri-home-4-fill"></i> Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/bookmarks">
+                      <i className="ri-bookmark-fill"></i> Bookmark
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <ul className="list-items">
+                {ButtonLinks.map((buttonLink) => (
+                  <Button
+                    key={buttonLink.id}
+                    button={buttonLink}
+                    filterProduct={filterProduct}
+                  />
+                ))}
+              </ul>
+            </nav>
+          )}
         </div>
         <h1 className="Free-Hit">
           <a href="/about">
