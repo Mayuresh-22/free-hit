@@ -36,7 +36,7 @@ const Header = () => {
 
       if (target.id !== 'btn' || !sidebar.contains(target)) {
         closeSidebar();
-      } else{
+      } else if (target.id == 'btn'){
         closeSidebar();
       }
     };
