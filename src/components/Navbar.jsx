@@ -19,7 +19,7 @@ const Header = ({ filteredSuggestions }) => {
   const sideNavRef = useRef(null)
   const [search, setSearch] = useState('')
 
-  const searchTerm = searchParams.get('q') || ''
+  const searchTerm = searchParams.get('query') || ''
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -43,9 +43,9 @@ const Header = ({ filteredSuggestions }) => {
   function setSearchTerm(val) {
     setSearchParams(prevParams => {
       if (val == "") {
-        prevParams.delete('q')
+        prevParams.delete('query')
       } else {
-        prevParams.set('q', val)
+        prevParams.set('query', val)
       }
       return prevParams
     })
