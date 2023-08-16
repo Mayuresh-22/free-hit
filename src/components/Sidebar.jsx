@@ -23,7 +23,7 @@ export default function Sidebar({search}) {
     search("");
     filter = filter.toLowerCase();
     setSearchParams((prevParams) => {
-      prevParams.delete('q');
+      prevParams.delete('query');
       prevParams.delete('page');
       let options = prevParams.getAll('filters') || [];
       if (options.length > 0) {
