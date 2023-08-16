@@ -45,7 +45,7 @@ const Card = () => {
   const productsPerPage = 16
   const totalPages = Math.ceil(currentProducts.length / productsPerPage)
 
-  const filterNames = searchTerm.length > 0 ? productNames.filter((productName) => productName.toLowerCase().startsWith(searchTerm.toLowerCase())) : []
+  const filterNames = searchTerm.length > 3 ? productNames.filter((productName) => productName.toLowerCase().startsWith(searchTerm.toLowerCase())) : []
   if (filterNames.length === 1 && currentProducts.filter(product => product.productName === searchTerm).length === 1) {
     currentProducts = currentProducts.filter(product => product.productName === filterNames[0])
   } else if (searchTerm.length === 0) {
