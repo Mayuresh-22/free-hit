@@ -22,7 +22,7 @@ const BookMarks = () => {
   let filters = searchParams.get('filters') || "all"
   filters = filters.split(",")
 
-  const searchTerm = searchParams.get('q') || '' 
+  const searchTerm = searchParams.get('query') || '' 
 
   if (checkFilter(filters)) return <Navigate to="/notfound" />
 
